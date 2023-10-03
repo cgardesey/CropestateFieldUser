@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/cardview"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        tools:text="University of Education, Winneba" />
+
+    <TextView
+        android:id="@+id/coursename"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Introduction to pedagogy of English" />
+
+    <TextView
+        android:id="@+id/filename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:padding="16dp"
+        android:text="@string/uploadmessage" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="0.8"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="Trusses and Frames" />
+
+    <TextView
+        android:id="@+id/schoolid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="0.8"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="Trusses and Frames" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/previewimage"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/uploadbtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:text="@string/uploadmaterial"
+        android:textColor="@color/actual_white"
+        android:visibility="gone" />
+
+    <Button
+
+        android:id="@+id/openfilebtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:text="@string/openfile"
+        android:textColor="@color/actual_white" />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="@style/CustomProgressBarHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:progress="0"
+        android:progressBackgroundTint="@color/colorPrimaryDark"
+        android:progressTint="@color/blue" />
+
+    <LinearLayout
+        android:id="@+id/statuslayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+
+            android:text="@string/status" />
+
+        <TextView
+            android:id="@+id/statustext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="0.8" />
+    </LinearLayout>
+
+
+</LinearLayout>
+

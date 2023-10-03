@@ -1,0 +1,743 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/activitylayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/gradient_header_background"
+android:orientation="vertical"
+tools:context=".activity.ClassroomActivity">
+
+<LinearLayout
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/verifyuserlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_gradient_square"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:src="@drawable/logo_splash" />
+
+    <TextView
+        android:id="@+id/timertext"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/please_wait"
+        android:textColor="#000"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="@string/calling_our_system_to_verify_your_number"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/groupcalllayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/active_background"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/callobjid_gp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="90dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/searchbtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            android:src="@drawable/search" />
+
+        <TextView
+            android:id="@+id/totalnumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/call_participants"
+            android:textColor="@color/actual_white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/reloadbtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            android:src="@drawable/reload" />
+
+        <ImageView
+            android:id="@+id/menubtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@color/transparent"
+            android:padding="16dp"
+            android:src="@drawable/menu_vertical" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/loadimg"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/resultnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:text=""
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/questionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000"
+            android:elevation="80dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/togglestudentsbtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/closewhite1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_recyclerview_questions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/togglestudentsbtn"
+                android:layout_marginTop="8dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/error_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.9"
+        android:elevation="100dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/puzzled" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/error_loading_data" />
+
+        <Button
+            android:id="@+id/retrybtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:background="@drawable/bg_gradient"
+            android:text="@string/retry"
+            android:textColor="@color/actual_white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/newcreatecourselayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.9"
+        android:elevation="100dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="34sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/you_have_no_participant_in_group_call_yet"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/classspeakerview_gp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+
+            android:orientation="vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/speakerimg_gp"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_weight="0.3"
+                android:src="@drawable/speaker"
+                app:riv_border_color="@color/white"
+                app:riv_corner_radius="10dip"
+                app:riv_oval="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/speaker"
+                android:textColor="@color/actual_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/classsbluetoothview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+
+            android:orientation="vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:src="@drawable/bluetooth"
+                app:riv_border_color="@color/white"
+                app:riv_corner_radius="10dip"
+                app:riv_oval="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/bluetooth"
+                android:textColor="@color/actual_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/leavegroupcallview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_weight="0.3"
+                android:src="@drawable/endcall"
+                app:riv_border_color="@color/white"
+                app:riv_corner_radius="10dip"
+                app:riv_oval="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/end_group_call"
+                android:textColor="@color/actual_white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/playbacklayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/active_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/callobjid_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient_square">
+
+        <TextView
+            android:layout_toLeftOf="@id/title_pb"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rounded_corner_green"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/title_pb"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/playback"
+            android:textColor="@color/actual_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/pickfile_pb"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@color/transparent"
+            android:layout_alignParentEnd="true"
+            android:padding="16dp"
+            android:src="@drawable/importfile" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:background="@color/white"
+        android:id="@+id/nofiletext_pb"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/there_is_no_document_file_for_this_playback" />
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView_pb"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/classspeakerview_pb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/speakerimg_pb"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/speaker"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/speaker"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/classbluetoothview_pb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/bluetooth"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/bluetooth"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/endplaybackview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/stop"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/endplayback"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="-10s"
+                android:textColor="@color/actual_white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/rewindIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@color/transparent"
+                android:padding="12dp"
+                android:src="@drawable/rewind" />
+
+            <ImageView
+                android:id="@+id/playIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@color/transparent"
+                android:padding="12dp"
+                android:src="@drawable/pause" />
+
+            <ImageView
+                android:id="@+id/fastforwardIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@color/transparent"
+                android:padding="12dp"
+                android:src="@drawable/forward" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:text="-10s"
+                android:textColor="@color/actual_white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/classroomcalllayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/active_background"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/callobjid_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient_square">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="@string/inclass"
+            android:textColor="@color/actual_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_toLeftOf="@id/title"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rounded_corner_green"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/pickfile"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@color/transparent"
+            android:layout_alignParentEnd="true"
+            android:padding="16dp"
+            android:src="@drawable/importfile" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/nofiletext"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/there_is_no_document_file_for_this_class_session"
+        android:textColor="@color/actual_white" />
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/classspeakerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/speakerimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/speaker"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/speaker"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/classbluetoothview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/bluetooth"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/bluetooth"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/leaveclassview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/endcall"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/leaveclass"
+                    android:textColor="@color/actual_white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/similaritemsrecycle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/askquestionkbackground"
+            android:gravity="center"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/askquestion"
+            android:textColor="@color/actual_white" />
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

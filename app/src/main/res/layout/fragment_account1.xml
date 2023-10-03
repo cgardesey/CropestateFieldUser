@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_concave_20"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#000"
+
+        android:gravity="center"
+        android:textStyle="italic" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.7"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:text="@string/profile"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:animateLayoutChanges="true">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/profile_imgview"
+                    android:layout_width="176dp"
+                    android:layout_height="176dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/avatar"
+                    app:riv_border_color="@android:color/darker_gray"
+                    app:riv_border_width="0.5dip"
+                    app:riv_corner_radius="30dip"
+                    app:riv_oval="true" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_above="@+id/item_gallery"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right|bottom"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/cam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:backgroundTint="@color/white"
+                            app:rippleColor="#fff"
+                            app:srcCompat="@drawable/addcamera" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/gal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/addimage"
+                            android:layout_marginTop="8dp"
+                            app:backgroundTint="@color/white"
+                            app:rippleColor="#fff"
+                            app:srcCompat="@drawable/picture" />
+
+                        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/rem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/image"
+                            android:layout_marginTop="8dp"
+                            app:backgroundTint="@color/white"
+                            app:rippleColor="#fff"
+                            app:srcCompat="@drawable/delete" />-->
+                    </LinearLayout>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/addimage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image1"
+                        android:layout_marginTop="8dp"
+                        app:rippleColor="#fff"
+                        app:srcCompat="@drawable/ic_camera" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/title"
+                    android:textColor="#000" />
+
+                <Spinner
+                    android:id="@+id/title_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="0.5"
+                    android:entries="@array/title_arrays"
+                    style="mySpinnerItemStyle"
+                    android:textAlignment="textEnd" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/label3"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/roundtext1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/first_name"
+                    android:inputType="textCapWords|textMultiLine"
+                    android:minHeight="40dp"
+                    android:padding="4dp"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/roundtext1"
+                    android:ems="1"
+                    android:gravity="center"
+                    android:hint="@string/last_name"
+                    android:inputType="textCapWords|textMultiLine"
+                    android:minHeight="40dp"
+                    android:padding="4dp"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/other_names"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/label3"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/roundtext1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/other_name_s"
+                    android:inputType="textCapWords|textMultiLine"
+                    android:minHeight="40dp"
+                    android:padding="4dp"
+                    android:textColor="#000" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/gender"
+                    android:textColor="#000" />
+
+                <Spinner
+                    android:id="@+id/gender_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@+id/label1"
+                    android:layout_weight="0.5"
+                    android:entries="@array/gender_arrays"
+                    android:gravity="end"
+                    style="mySpinnerItemStyle"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/emailaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_weight="0.7"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/roundtext1"
+                android:gravity="center"
+                android:hint="Guardian Email Address*"
+                android:inputType="textEmailAddress|textMultiLine"
+                android:minHeight="40dp"
+                android:padding="4dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/darker_gray" />
+
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:hint="@string/swipe_to_next_page"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@mipmap/ic_forward" />
+
+            </LinearLayout>-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+
+

@@ -1,0 +1,124 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+android {
+    compileSdkVersion 30
+    namespace "com.cropestate.fielduser"
+    buildFeatures {
+        buildConfig true
+    }
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "androidManifestFile": "$projectDir/src/main/AndroidManifest.xml".toString()
+                ]
+            }
+        }
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+        applicationId "com.cropestate.fielduser"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 25
+        versionName "2.0.4"
+        multiDexEnabled true
+
+        useLibrary 'org.apache.http.legacy'
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue("string", "PORT_NUMBER", "8082")
+        }
+        release {
+            /* minifyEnabled true
+            shrinkResources true*/
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/DEPENDENCIES'
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/x86/libc++_shared.so'
+        pickFirst 'lib/x86_64/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+    }
+    buildToolsVersion = '28.0.3'
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    aaptOptions {
+
+        noCompress "json"
+    }
+}
+
+dependencies {
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.0.0-rc02'
+    implementation 'androidx.navigation:navigation-ui:2.0.0-rc02'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation('org.apache.httpcomponents:httpmime:4.3') {
+        exclude module: "httpclient"
+    }
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.core:core:1.2.0"
+    implementation 'com.github.noelchew:MultiPickerWrapper:0.2.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation project(':filepicker')
+    implementation (
+            group: 'com.aspose',
+            name: 'aspose-words',
+            version: '23.3',
+            classifier: 'android.via.java')
+    implementation 'javax.xml.bind:jaxb-api:2.2.4'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'net.rimoto:intlphoneinput:1.0.1'
+    implementation 'com.github.chrisbanes:PhotoView:1.3.1'
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+    implementation 'org.androidannotations:androidannotations-api:4.6.0'
+    annotationProcessor "org.androidannotations:androidannotations:4.6.0"
+    implementation("com.google.guava:guava:28.2-android")
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'com.github.hani-momanii:SuperNova-Emoji:1.1'
+    implementation 'com.github.ParkSangGwon:TedPicker:v1.0.10'
+    implementation 'org.jsoup:jsoup:1.8.3' // required
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'joda-time:joda-time:2.10.5'
+    implementation 'com.ramotion.paperonboarding:paper-onboarding:1.1.3'
+    implementation 'com.github.joielechong:countrycodepicker:2.4.1'
+    implementation 'com.github.takusemba:spotlight:1.3.3'
+    implementation 'com.github.adrielcafe:AndroidAudioRecorder:0.3.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.itextpdf:itextg:5.5.10'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'androidx.work:work-runtime:2.4.0'
+    implementation 'com.google.api-client:google-api-client:1.25.0'
+    implementation 'per.freesky1102.mediapicker:mediapicker:1.0.2'
+    implementation 'com.github.rygelouv:android-audio-sensei:0.1.2'
+    implementation 'org.apache.commons:commons-text:1.3'
+    implementation 'com.arthenica:mobile-ffmpeg-full:4.4'
+}
+apply plugin: 'com.google.gms.google-services'

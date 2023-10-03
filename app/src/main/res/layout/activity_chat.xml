@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".activity.ChatActivity">
+
+    <RelativeLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bg_gradient_square"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/searchView"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:padding="16dp"
+                android:src="@drawable/left" />
+
+            <TextView
+                android:id="@+id/coursepath"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:ellipsize="start"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="University>>Computer Engineering>>Sofware Engineering"
+                android:textColor="@color/actual_white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_toLeftOf="@id/navlayout"
+            android:minWidth="56dp"
+            android:queryHint="@string/search" />
+
+        <LinearLayout
+            android:id="@+id/navlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/upbtn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:padding="12dp"
+                android:src="@drawable/uparrow"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/downbtn"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:padding="12dp"
+                android:src="@drawable/downarrow" />
+
+            <ImageView
+                android:id="@+id/pickfile"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentEnd="true"
+                android:background="@color/transparent"
+                android:padding="16dp"
+                android:src="@drawable/importfile" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="1dp"
+        android:layout_height="1dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyrlerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="56dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingBottom="4dp"
+        tools:itemCount="1"
+        tools:listitem="@layout/recycle_chat" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/card_view"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/card_view"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/sendBtnWrapper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/sendMessageButton"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="8dp"
+                        android:background="@mipmap/ic_send"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_toLeftOf="@id/sendBtnWrapper"
+
+                    card_view:cardCornerRadius="24dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+
+                        android:orientation="vertical">
+
+                        <include
+                            layout="@layout/reply_preview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="8dp" />
+
+                        <include
+                            layout="@layout/link_prev"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="8dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/emoji_btn"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:layout_gravity="bottom"
+                                android:padding="8dp"
+                                android:src="@drawable/smiley"
+                                app:emojiconAlignment="baseline"
+                                app:emojiconSize="20sp" />
+
+                            <ImageButton
+                                android:id="@+id/attach"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:layout_marginBottom="4dp"
+                                android:background="@drawable/ic_action_attachment" />
+
+                            <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+                                android:id="@+id/messageEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="@string/type_a_message"
+                                android:inputType="textCapSentences|textMultiLine"
+                                android:minHeight="48dp"
+                                android:padding="8dp"
+                                android:textColorHint="#808080"
+                                app:emojiconAlignment="baseline"
+                                app:emojiconSize="20sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            card_view:cardBackgroundColor="@color/white"
+            card_view:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:id="@+id/topRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16dp"
+
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/upcomingdoc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/docImgView"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@mipmap/ic_doc" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/docImgView"
+                            android:layout_centerHorizontal="true"
+                            android:text="Document" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/gal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/galImgView"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@mipmap/ic_gal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/galImgView"
+                            android:layout_centerHorizontal="true"
+                            android:text="Gallery" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/audio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/audioImgView"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_weight="0.3"
+                            android:src="@drawable/audio"
+                            app:riv_border_color="@color/white"
+                            app:riv_corner_radius="10dip"
+                            app:riv_oval="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/audioImgView"
+                            android:layout_centerHorizontal="true"
+                            android:text="Audio" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/loc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/locImgView"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@mipmap/ic_google_map" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/locImgView"
+                            android:layout_centerHorizontal="true"
+                            android:text="Location" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/topRow"
+
+                    android:orientation="horizontal">
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pbar_pic"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:theme="@style/AppTheme.ColorPrimaryAccent"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/statusMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+</RelativeLayout>

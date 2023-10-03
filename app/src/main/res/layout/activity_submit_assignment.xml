@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    tools:context=".activity.SubmitAssignmentActivity">
+
+    <TextView
+        android:id="@+id/assigmenttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="18dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        tools:text="3rd Order Differential Equations" />
+
+    <EditText
+        android:id="@+id/submissiontitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:hint="@string/assignment_title"
+        android:inputType="textCapWords|textMultiLine"
+        android:minHeight="40dp"
+        android:padding="4dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/filerecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/text"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
+        tools:itemCount="3"
+        tools:listitem="@layout/recycle_submit_file_list" />
+
+    <LinearLayout
+        android:id="@+id/progresslayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@style/CustomProgressBarHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:progress="35"
+            android:progressBackgroundTint="@color/colorPrimaryDark"
+            android:progressTint="@color/blue" />
+
+        <LinearLayout
+            android:id="@+id/statuslayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+
+                android:text="@string/status" />
+
+            <TextView
+                android:id="@+id/statustext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="0.8"
+                tools:text="56% complete" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/attach_file_s"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textSize="16dp" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/upcomingdoc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/docImgView"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_doc" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/docImgView"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/document" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/gal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/galImgView"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_gal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/galImgView"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/gallery" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/cam"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/locImgView"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/addcamera" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/locImgView"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/camera" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:text="@string/submitassignment"
+        android:textColor="@color/actual_white"
+        android:visibility="gone" />
+
+</LinearLayout>
+

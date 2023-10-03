@@ -1,0 +1,378 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/regularcalllayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/topbar_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="15dp"
+                android:indeterminate="false"
+                android:paddingLeft="15dp"
+
+
+                android:paddingRight="15dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/statuscolor"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corner_green"
+                    android:gravity="center"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:textColor="@color/actual_white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/callid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textDisplayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/actual_white"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/callobjid_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="Ghana"
+                android:textColor="@color/actual_white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="Ghana"
+                android:textColor="@color/actual_white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/view"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:layout_gravity="center"
+            android:background="#808080"
+            android:scaleType="fitCenter"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="0.5dip"
+            app:riv_corner_radius="30dip"
+            app:riv_mutate_background="true"
+            app:riv_oval="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/addcallview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/addcallimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/plus"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/addcall"
+                    android:textColor="@color/actual_white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/pausebtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/pauseimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/pause"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:id="@+id/pausetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/pause"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bluetoothview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/bluetooth"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/bluetooth"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/dialpad"
+            layout="@layout/dialpad_view" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/speakerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/callspeakerimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/speaker"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/speaker"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/muteview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/muteimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/mute1"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:id="@+id/mutetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/mute"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dialpadbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/keypad"
+                    app:riv_border_color="@color/white"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/keypad"
+                    android:textColor="@color/actual_white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/answerlayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center">
+
+                <ImageView
+
+                    android:id="@+id/buttonAnswer"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+
+                    android:background="@drawable/rounded_corner_call"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/acceptcall"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mhanguplayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:elevation="16dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/buttonHangup"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+
+
+                    android:background="@drawable/rounded_corner_call"
+
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/endcolor"
+
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

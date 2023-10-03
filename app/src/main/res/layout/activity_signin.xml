@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.9"
+    android:background="@drawable/farmer"
+    tools:context=".activity.SigninActivity">
+
+    <RelativeLayout
+        android:id="@+id/usernameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="64dp">
+
+        <EditText
+            android:paddingLeft="40dp"
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/rounded_edge"
+            android:drawablePadding="8dp"
+            android:hint="Email"
+            android:textColor="@color/white"
+            android:textColorHint="@color/place_autocomplete_search_hint"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/userIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@drawable/email" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/passwordLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameLayout"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:background="@drawable/rounded_edge"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="40dp"
+            android:hint="Password"
+            android:imeActionId="6"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:textColorHint="@color/place_autocomplete_search_hint"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:paddingRight="48dp"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/paddlockIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@drawable/password_white" />
+
+        <ImageView
+            android:id="@+id/passwordIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@drawable/show_password" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordLayout"
+        android:layout_gravity="end"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Forgot password?"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forgotPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_edge_button"
+        android:text="Sign in"
+        android:textColor="@color/white" />
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/logo_app"
+        android:layout_above="@id/usernameLayout"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo_r"
+        app:riv_border_color="@color/white"
+        android:layout_width="112dp"
+        android:layout_height="112dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        app:riv_border_width="0.5dip"
+        app:riv_corner_radius="30dip"
+        app:riv_mutate_background="true"
+        app:riv_oval="true" />
+
+</RelativeLayout>

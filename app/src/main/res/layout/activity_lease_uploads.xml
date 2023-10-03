@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/topbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_square"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backbtn1"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:padding="16dp"
+                android:src="@drawable/left" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:text="Lease Images"
+                android:textAlignment="center"
+                android:textColor="@color/actual_white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/refresh"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@color/transparent"
+                android:padding="16dp"
+                android:src="@drawable/reload" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appbar"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Lease Images"
+            android:textAlignment="center"
+            android:textColor="#A17E24"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:itemCount="3"
+            tools:listitem="@layout/recycle_lease_upload" />
+
+        <TextView
+            android:id="@+id/noleaseuploadstext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="There are currently no lease images." />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/gal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/fab_margin_right"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
+        app:srcCompat="@drawable/gallery" />
+
+</RelativeLayout>
